@@ -1,18 +1,29 @@
-var deployd = require('deployd'),
-os = require('os');
+// production.js
+var deployd = require('deployd');
+
 var server = deployd({
-env: 'development',
-db: {
-host: 'localhost',
-port: 27017,
-name: 'pincity'
-}
+  port: process.env.PORT || 5000,
+  env: 'production',
+  db: {
+    host: 'mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/',
+    port: 27105,
+    name: 'pincity',
+    credentials: {
+      username: 'admin',
+      password: '6fEz75PT8IdQ'
+    }
+  }
 });
-server.listen(process.env.OPENSHIFT_NODEJS_PORT,process.env.OPENSHIFT_NODEJS_IP);
-console.log('Express server listening on http://' + os.hostname() + ":" + server.options.port + " with DB " + server.options.db.host + "/" + server.options.db.name);
-server.on('error', function (err) {
-console.error(err);
-process.nextTick(function () { // Give the server a chance to return an error
-process.exit();
+
+server.listen();
+
+server.on('listening', function() {
+  console.log("Server is listening");
 });
+
+server.on('error', function(err) {
+  console.error(err);
+  process.nextTick(function() { // Give the server a chance to return an error
+    process.exit();
+  });
 });
