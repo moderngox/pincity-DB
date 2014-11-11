@@ -1,7 +1,7 @@
 // production.js
 var deployd = require('deployd');
-var port = process.env.OPENSHIFT_INTERNAL_PORT;
-var ip = process.env.OPENSHIFT_INTERNAL_IP
+var port = process.env.OPENSHIFT_NODEJS_PORT;
+var ip = process.env.OPENSHIFT_NODEJS_IP
 var server = deployd({
  
   env: 'production',
