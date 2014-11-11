@@ -4,12 +4,7 @@ var port = process.env.OPENSHIFT_NODEJS_PORT;
 var ip = process.env.OPENSHIFT_NODEJS_IP
 var server = deployd({
  
-  env: 'production',
-  db: {
-    host: 'localhost',
-    port: 27105,
-    name: 'pincity'
-  }
+  env: 'production'
 });
 
 server.listen(port, ip);
