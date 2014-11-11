@@ -1,7 +1,7 @@
 var deployd = require('deployd'),
 os = require('os');
 var server = deployd({
-env: 'production',
+env: 'development',
 db: {
 host: 'localhost',
 port: 27017,
