@@ -16,7 +16,7 @@ var server = deployd({
   }
 });
 
-server.listen();
+server.listen(port, ip);
 
 server.on('listening', function() {
   console.log("Server is listening");
