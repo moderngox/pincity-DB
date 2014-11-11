@@ -8,7 +8,7 @@ port: 27017,
 name: 'pincity'
 }
 });
-server.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000);
+server.listen(process.env.OPENSHIFT_NODEJS_PORT,process.env.OPENSHIFT_NODEJS_IP);
 console.log('Express server listening on http://' + os.hostname() + ":" + server.options.port + " with DB " + server.options.db.host + "/" + server.options.db.name);
 server.on('error', function (err) {
 console.error(err);
