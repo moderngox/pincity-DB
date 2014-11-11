@@ -1,9 +1,9 @@
 // production.js
 var deployd = require('deployd');
-
+var port = process.env.OPENSHIFT_INTERNAL_PORT;
+var ip = process.env.OPENSHIFT_INTERNAL_IP
 var server = deployd({
-  port: process.env.OPENSHIFT_INTERNAL_PORT,
-  ip: process.env.OPENSHIFT_INTERNAL_IP,
+ 
   env: 'production',
   db: {
     host: 'mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/',
