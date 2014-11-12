@@ -1,10 +1,19 @@
 // production.js
 var deployd = require('deployd');
 var port = process.env.OPENSHIFT_NODEJS_PORT;
-var ip = process.env.OPENSHIFT_NODEJS_IP
+var ip = process.env.OPENSHIFT_NODEJS_IP;
 var server = deployd({
  
-  env: 'production'
+  env: 'production',
+  db: {
+    host: 'mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/',
+    port: 27105,
+    name: 'pincity',
+    credentials: {
+      username: 'admin',
+      password: '6fEz75PT8IdQ'
+    }
+  }
 });
 
 server.listen(port, ip);
