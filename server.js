@@ -6,7 +6,7 @@ var server = deployd({
  
   env: 'production',
   db: {
-    host: 'mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/',
+    host: '127.5.72.130',
     port: 27105,
     name: 'pincity',
     credentials: {
