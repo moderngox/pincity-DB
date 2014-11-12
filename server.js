@@ -7,7 +7,7 @@ var server = deployd({
   env: 'production',
   db: {
     host: '127.5.72.130',
-    port: 27105,
+    port: 27017,
     name: 'pincity',
     credentials: {
       username: 'admin',
