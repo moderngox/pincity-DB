@@ -4,7 +4,7 @@ var port = process.env.OPENSHIFT_NODEJS_PORT;
 var ip = process.env.OPENSHIFT_NODEJS_IP;
 var server = deployd({
  
-  env: 'production',
+  env: 'development',
   db: {
     host: '127.5.72.130',
     port: 27017,
